@@ -1,0 +1,77 @@
+<Solution>
+  <PropertyGroup Name="FlappyBird" Version="3.10.0.0" Type="CocosStudio" />
+  <SolutionFolder>
+    <Group ctype="ResourceGroup">
+      <RootFolder Name=".">
+        <Folder Name="Assets">
+          <Folder Name="background">
+            <Image Name="back1.png" />
+            <Image Name="back2.png" />
+          </Folder>
+          <Folder Name="bird">
+            <Image Name="bird0.png" />
+            <Image Name="bird1_1.png" />
+            <Image Name="bird1_2.png" />
+            <Image Name="bird1_3.png" />
+            <Image Name="bird2_1.png" />
+            <Image Name="bird2_2.png" />
+            <Image Name="bird2_3.png" />
+            <Image Name="bird3_1.png" />
+            <Image Name="bird3_2.png" />
+            <Image Name="bird3_3.png" />
+          </Folder>
+          <Folder Name="effect">
+            <Image Name="effect_twincle1.png" />
+            <Image Name="effect_twincle2.png" />
+          </Folder>
+          <Folder Name="font">
+            <Fnt Name="font1.fnt" />
+            <Fnt Name="font2.fnt" />
+            <Fnt Name="font3.fnt" />
+          </Folder>
+          <Folder Name="logo">
+            <Image Name="logo_flappy_bird.png" />
+            <Image Name="logo_game_over.png" />
+            <Image Name="logo_get_ready.png" />
+          </Folder>
+          <Folder Name="medal">
+            <Image Name="medal_bronze.png" />
+            <Image Name="medal_gold.png" />
+            <Image Name="metal_platium.png" />
+            <Image Name="metal_silver.png" />
+          </Folder>
+          <Folder Name="sounds">
+            <Audio Name="sfx_swooshing.mp3" />
+          </Folder>
+          <Folder Name="stage">
+            <Image Name="ground.png" />
+            <Image Name="pipe1_down.png" />
+            <Image Name="pipe1_up.png" />
+            <Image Name="pipe2_down.png" />
+            <Image Name="pipe2_up.png" />
+          </Folder>
+          <Folder Name="UI">
+            <Image Name="black.png" />
+            <Image Name="bnt_ok.png" />
+            <Image Name="btn_menu.png" />
+            <Image Name="btn_pause.png" />
+            <Image Name="btn_play.png" />
+            <Image Name="btn_rate.png" />
+            <Image Name="btn_resume.png" />
+            <Image Name="finger.png" />
+            <Image Name="leaderboard.png" />
+            <Image Name="new.png" />
+            <Image Name="score_frame.png" />
+            <Image Name="slice24_24.png" />
+            <Image Name="tap_left.png" />
+            <Image Name="tap_right.png" />
+            <Image Name="up.png" />
+            <Image Name="white.png" />
+          </Folder>
+        </Folder>
+        <Project Name="MainScene.csd" Type="Scene" />
+        <Project Name="bird1.csd" Type="Node" />
+      </RootFolder>
+    </Group>
+  </SolutionFolder>
+</Solution>
