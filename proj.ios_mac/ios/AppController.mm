@@ -45,7 +45,7 @@ static AppDelegate s_sharedApplication;
     // Override point for customization after application launch.
 
     // Add the view controller's view to the window and display.
-    window = [[UIWindow alloc] initWithFrame: [[UIScreen MainSceneScreen] bounds]];
+    window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
 
     // Init the CCEAGLView
     CCEAGLView *eaglView = [CCEAGLView viewWithFrame: [window bounds]

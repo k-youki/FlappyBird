@@ -70,7 +70,7 @@
           </Folder>
         </Folder>
         <Project Name="MainScene.csd" Type="Scene" />
-        <Project Name="bird1.csd" Type="Node" />
+        <Project Name="Character.csd" Type="Node" />
       </RootFolder>
     </Group>
   </SolutionFolder>

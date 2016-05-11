@@ -1,9 +1,9 @@
 <GameFile>
-  <PropertyGroup Name="bird1" Type="Node" ID="bbc723e1-b7cb-4bd7-a379-7d7fc4081e8f" Version="3.10.0.0" />
+  <PropertyGroup Name="Character" Type="Node" ID="bbc723e1-b7cb-4bd7-a379-7d7fc4081e8f" Version="3.10.0.0" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
-      <ObjectData Name="Node" Tag="40" ctype="GameNodeObjectData">
+      <ObjectData Name="Node" CustomClassName="Character" Tag="40" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
           <AbstractNodeData Name="bird" ActionTag="-528226728" Tag="42" IconVisible="False" LeftMargin="-17.0000" RightMargin="-17.0000" TopMargin="-12.0000" BottomMargin="-12.0000" ctype="SpriteObjectData">

@@ -17,7 +17,7 @@
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.3247" Y="0.4558" />
                 <PreSize X="0.0000" Y="0.0000" />
-                <FileData Type="Normal" Path="bird1.csd" Plist="" />
+                <FileData Type="Normal" Path="Character.csd" Plist="" />
               </AbstractNodeData>
               <AbstractNodeData Name="ground" ActionTag="539058104" Tag="46" IconVisible="False" RightMargin="-48.0000" TopMargin="402.0000" BottomMargin="-2.0000" ctype="SpriteObjectData">
                 <Size X="336.0000" Y="112.0000" />
