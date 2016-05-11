@@ -3,6 +3,8 @@
 
 #include "cocos2d.h"
 
+class Character;
+
 class MainScene : public cocos2d::Layer
 {
 public:
@@ -14,6 +16,15 @@ public:
 
     // implement the "static create()" method manually
     CREATE_FUNC(MainScene);
+    
+    void onEnter() override;
+ 
+    
+private:
+    Character* character;
+    
+    void setupTouchHandling();
+    
 };
 
 #endif // __MainScene_SCENE_H__

@@ -3,6 +3,7 @@
 #include "ui/CocosGUI.h"
 
 #include "CharacterReader.hpp"
+#include "Character.hpp"
 
 USING_NS_CC;
 
@@ -42,7 +43,31 @@ bool MainScene::init()
     rootNode->setContentSize(size);
     ui::Helper::doLayout(rootNode);
     
+    auto back = rootNode->getChildByName("back");
+    this->character = back->getChildByName<Character*>("character");
+    
+    
     addChild(rootNode);
 
     return true;
+}
+
+void MainScene::onEnter()
+{
+    Layer::onEnter();
+    
+    this->setupTouchHandling();
+}
+
+void MainScene::setupTouchHandling()
+{
+    auto touchListener = EventListenerTouchOneByOne::create();
+    
+    touchListener->onTouchBegan = [&](Touch* touch, Event* event)
+    {
+        this->character->jump();
+        return true;
+    };
+    
+     this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
 }
