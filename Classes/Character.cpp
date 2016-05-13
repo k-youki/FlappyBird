@@ -45,7 +45,6 @@ void Character::jump()
 {
     this->velocity = JUMP_SPEED;
     
-    
     // キャラクターに新しいアクションをスタートさせるには、実行中のアクションがある場合はまずそれを止める。
     this->stopAllActions();
     

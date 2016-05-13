@@ -28,11 +28,8 @@ Scene* MainScene::createScene()
     return scene;
 }
 
-// on "init" you need to initialize your instance
 bool MainScene::init()
 {
-    //////////////////////////////
-    // 1. super init first
     if ( !Layer::init() )
     {
         return false;
@@ -49,9 +46,15 @@ bool MainScene::init()
     ui::Helper::doLayout(rootNode);
     
     this->background = rootNode->getChildByName("back");
-    this->character = background->getChildByName<Character*>("character");
+    this->character = this->background->getChildByName<Character*>("character");
     this->ground[0] = rootNode->getChildByName("ground0");
     this->ground[1] = rootNode->getChildByName("ground1");
+    this->scoreLabel = this->background->getChildByName<ui::TextBMFont*>("scoreLabel");
+    score = 0;
+    this->setScore(score);
+    
+    this->character->setLocalZOrder(1);
+    this->scoreLabel->setLocalZOrder(1);
     
     addChild(rootNode);
 
@@ -67,13 +70,56 @@ void MainScene::onEnter()
 
 void MainScene::update(float dt)
 {
+    switch (this->state) {
+        case State::Ready:
+            this->updateReady();
+            break;
+        case State::Playing:
+            this->updatePlaying();
+            break;
+        case State::GameOver:
+            this->updateGameOver();
+            break;
+    }
+}
+
+void MainScene::updateReady()
+{
+    // 床の移動
+    for (int i = 0; i < GROUND_NUM; i++) {
+        ground[i]->setPosition(ground[i]->getPosition() + Vec2(-SCROLL_SPEED_X,0));
+    }
+    
+    // 床のループ判定
+    for (int i = 0; i < GROUND_NUM; i++) {
+        if (ground[i]->getPositionX() < -DISPLAY_WIDTH){
+            ground[i]->setPosition(Vec2(DISPLAY_WIDTH,GROUND_Y));
+        }
+    }
+}
+
+void MainScene::updatePlaying()
+{
+    // 障害物とキャラの衝突判定
+    Rect characterRect = character->getRect();
+    
+    // 床の移動
+    for (int i = 0; i < GROUND_NUM; i++) {
+        ground[i]->setPosition(ground[i]->getPosition() + Vec2(-SCROLL_SPEED_X,0));
+    }
+    
+    // 床のループ判定
+    for (int i = 0; i < GROUND_NUM; i++) {
+        if (ground[i]->getPositionX() < -DISPLAY_WIDTH){
+            ground[i]->setPosition(Vec2(DISPLAY_WIDTH,GROUND_Y));
+        }
+    }
+    
     // 障害物の移動
     for (auto obstacle : this->obstacles) {
         obstacle->moveLeft(SCROLL_SPEED_X);
     }
     
-    // 障害物とキャラの衝突判定
-    Rect characterRect = character->getRect();
     // 土管との衝突判定
     for (auto obstacle : this->obstacles) {
         auto obstacleRects = obstacle->getRects();
@@ -81,12 +127,10 @@ void MainScene::update(float dt)
         for (Rect obstacleRect : obstacle->getRects()) {
             bool hit = characterRect.intersectsRect(obstacleRect);
             if (hit){
-                CCLOG("HIT");
                 //this->unscheduleUpdate();
                 //this->unscheduleAllCallbacks();
                 triggerGameOver();
             } else {
-                //CCLOG("NO HIT");
             }
         }
     }
@@ -94,29 +138,39 @@ void MainScene::update(float dt)
     // 床にあたったとき
     auto groundRects = this->getGroundRects();
     for (Rect groundRect : groundRects) {
-            bool hit = characterRect.intersectsRect(groundRect);
-            if (hit){
-                CCLOG("HIT");
-                this->unscheduleUpdate();
-                this->unscheduleAllCallbacks();
-                triggerGameOver();
-                character->stopFly();
-            } else {
-                //CCLOG("NO HIT");
-            }
+        bool hit = characterRect.intersectsRect(groundRect);
+        if (hit){
+            CCLOG("ground hit");
+            this->unscheduleUpdate();
+            this->unscheduleAllCallbacks();
+            triggerGameOver();
+            character->stopFly();
+        } else {
         }
+    }
     
-    if (state == State::Playing){
-        // 床の移動
-        for (int i = 0; i < 2; i++) {
-            ground[i]->setPosition(ground[i]->getPosition() + Vec2(-SCROLL_SPEED_X,0));
+    for (auto obstacle : this->obstacles) {
+        float currentX = obstacle->getPositionX();
+        float lastX = currentX - SCROLL_SPEED_X;
+        if (lastX < this->character->getPositionX() && this->character->getPositionX() <= currentX) {
+            this->setScore(++score);
         }
+    }
+
+}
+
+void MainScene::updateGameOver()
+{
+    // 障害物とキャラの衝突判定
+    Rect characterRect = character->getRect();
     
-        // 床のループ判定
-        for (int i = 0; i < 2; i++) {
-            if (ground[i]->getPositionX() < -288){
-                ground[i]->setPosition(Vec2(288,110));
-            }
+    // 床にあたったとき
+    auto groundRects = this->getGroundRects();
+    for (Rect groundRect : groundRects) {
+        bool hit = characterRect.intersectsRect(groundRect);
+        if (hit){
+            character->stopFly();
+        } else {
         }
     }
 }
@@ -169,6 +223,7 @@ void MainScene::triggerReady()
 {
     this->state = State::Ready;
     this->character->stopFly();
+    this->setScore(0);
 }
 
 void MainScene::triggerPlaying()
@@ -200,5 +255,11 @@ std::vector<cocos2d::Rect> MainScene::getGroundRects()
     rects.push_back(ground1Rect);
     
     return rects;
+}
+
+void MainScene::setScore(int score)
+{
+    this->score = score;
+    this->scoreLabel->setString(std::to_string(score));
 }
 

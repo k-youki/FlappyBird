@@ -2,6 +2,7 @@
 #define __MainScene_SCENE_H__
 
 #include "cocos2d.h"
+#include "ui/CocosGUI.h"
 
 class Character;
 #include "Obstacle.hpp"
@@ -31,8 +32,10 @@ private:
     Node* background;
     Node* ground[2];
     Node* hoge;
-
+    cocos2d::Rect characterRect;
+    cocos2d::ui::TextBMFont* scoreLabel;
     State state;
+    int score;
     
     void setupTouchHandling();
     void createObstacle(float dt);
@@ -41,6 +44,10 @@ private:
     void triggerPlaying();
     void triggerGameOver();
     std::vector<cocos2d::Rect> getGroundRects();
+    void updateReady();
+    void updatePlaying();
+    void updateGameOver();
+    void setScore(int score);
 };
 
 #endif // __MainScene_SCENE_H__
