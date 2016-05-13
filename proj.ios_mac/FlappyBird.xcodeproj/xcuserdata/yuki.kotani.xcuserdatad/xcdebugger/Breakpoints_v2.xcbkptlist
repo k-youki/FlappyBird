@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../Classes/Character.cpp"
-            timestampString = "484656490.088573"
+            filePath = "../Classes/Obstacle.cpp"
+            timestampString = "484724358.229441"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "Character::jump()"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "Obstacle::getRects()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

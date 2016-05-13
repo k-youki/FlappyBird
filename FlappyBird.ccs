@@ -71,6 +71,7 @@
         </Folder>
         <Project Name="MainScene.csd" Type="Scene" />
         <Project Name="Character.csd" Type="Node" />
+        <Project Name="Obstacle.csd" Type="Node" />
       </RootFolder>
     </Group>
   </SolutionFolder>

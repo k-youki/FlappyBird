@@ -60,6 +60,10 @@
 		C93E275D1CE332EE00E218E8 /* CharacterReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C93E275B1CE332EE00E218E8 /* CharacterReader.cpp */; };
 		C93E275E1CE332EE00E218E8 /* CharacterReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C93E275B1CE332EE00E218E8 /* CharacterReader.cpp */; };
 		C93E275F1CE3389E00E218E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 503AE0FC17EB989F00D1A890 /* main.m */; };
+		C93E27631CE4123E00E218E8 /* Obstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C93E27611CE4123E00E218E8 /* Obstacle.cpp */; };
+		C93E27641CE4123E00E218E8 /* Obstacle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C93E27611CE4123E00E218E8 /* Obstacle.cpp */; };
+		C93E27671CE4125200E218E8 /* ObstacleReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C93E27651CE4125200E218E8 /* ObstacleReader.cpp */; };
+		C93E27681CE4125200E218E8 /* ObstacleReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C93E27651CE4125200E218E8 /* ObstacleReader.cpp */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
@@ -124,6 +128,11 @@
 		C93E27581CE332D600E218E8 /* Character.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Character.hpp; sourceTree = "<group>"; };
 		C93E275B1CE332EE00E218E8 /* CharacterReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterReader.cpp; sourceTree = "<group>"; };
 		C93E275C1CE332EE00E218E8 /* CharacterReader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterReader.hpp; sourceTree = "<group>"; };
+		C93E27601CE40FA300E218E8 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		C93E27611CE4123E00E218E8 /* Obstacle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Obstacle.cpp; sourceTree = "<group>"; };
+		C93E27621CE4123E00E218E8 /* Obstacle.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Obstacle.hpp; sourceTree = "<group>"; };
+		C93E27651CE4125200E218E8 /* ObstacleReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObstacleReader.cpp; sourceTree = "<group>"; };
+		C93E27661CE4125200E218E8 /* ObstacleReader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ObstacleReader.hpp; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -258,8 +267,13 @@
 				46880B8719C43A87006E1F66 /* MainScene.h */,
 				C93E27571CE332D600E218E8 /* Character.cpp */,
 				C93E27581CE332D600E218E8 /* Character.hpp */,
+				C93E27611CE4123E00E218E8 /* Obstacle.cpp */,
+				C93E27621CE4123E00E218E8 /* Obstacle.hpp */,
+				C93E27651CE4125200E218E8 /* ObstacleReader.cpp */,
+				C93E27661CE4125200E218E8 /* ObstacleReader.hpp */,
 				C93E275B1CE332EE00E218E8 /* CharacterReader.cpp */,
 				C93E275C1CE332EE00E218E8 /* CharacterReader.hpp */,
+				C93E27601CE40FA300E218E8 /* Constants.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -437,7 +451,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C93E275D1CE332EE00E218E8 /* CharacterReader.cpp in Sources */,
+				C93E27671CE4125200E218E8 /* ObstacleReader.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
+				C93E27631CE4123E00E218E8 /* Obstacle.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* MainScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				C93E27591CE332D600E218E8 /* Character.cpp in Sources */,
@@ -453,9 +469,11 @@
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* MainScene.cpp in Sources */,
+				C93E27681CE4125200E218E8 /* ObstacleReader.cpp in Sources */,
 				C93E275E1CE332EE00E218E8 /* CharacterReader.cpp in Sources */,
 				C93E275F1CE3389E00E218E8 /* main.m in Sources */,
 				C93E275A1CE332D600E218E8 /* Character.cpp in Sources */,
+				C93E27641CE4123E00E218E8 /* Obstacle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
